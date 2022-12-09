@@ -1,0 +1,18 @@
+
+"marbletechno1.mp3",//タイトルBGM
+"shizukanoumi.mp3",//BGM
+"picopicodisco.mp3",//ゲームクリア時BGM
+"shizukanoumi.mp3",//ゲームオーバー時BGM
+
+"cursorMove11.mp3",//カーソル移動音
+"cursorSelect.mp3",//カーソルクリック音
+
+"cursorPush.mp3",//決定音
+
+"attack.mp3",//攻撃音
+
+"hit.mp3"//被弾音
+
+●サイト名⇒ 甘茶の音楽工房（英語表記＝Music Atelier Amacha）
+●作曲者⇒ 甘茶（英語表記＝Amacha）
+●URL⇒ https://amachamusic.chagasi.com/
