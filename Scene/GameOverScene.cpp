@@ -61,9 +61,6 @@ SceneBase* GameOverScene::update()
 void GameOverScene::draw()
 {
 	DrawGraph(0, 0, m_graph, false);
-	/*SetFontSize(Game::kFontSize);
-	DrawString(100, 100, "GameOver", 0xffffff);
-	SetFontSize(0);*/
 
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, m_fade);
 	DrawBox(0, 0, Game::kScreenWidth, Game::kScreenHeight, 0x000000, true);

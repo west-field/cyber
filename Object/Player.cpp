@@ -62,7 +62,6 @@ void Player::Draw()
 	//HPÉoÅ[ï\é¶
 	DrawBoxAA(m_pos.x, m_pos.y + kGraphSizeY, m_pos.x + (m_nowHp / kMaxHp * m_hpWidth), m_pos.y + kGraphSizeY + 10, 0x008000, true);
 	DrawBoxAA(m_pos.x, m_pos.y + kGraphSizeY, m_pos.x + m_hpWidth, m_pos.y + kGraphSizeY + 10, 0xffffff, false);
-	DrawFormatString(0, 100, 0xffffff, "%3f,%3f", m_nowHp, m_nowHp / kMaxHp);
 
 	if (m_isDamage)
 	{

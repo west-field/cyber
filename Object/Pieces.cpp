@@ -186,10 +186,6 @@ void Pieces::Draw()
 	m_player.Draw();
 	m_enemy.Draw();
 	DrawFormatString((Game::kScreenWidth + 5 * 50) / 2 + 140, 20.0f, 0xffffff, "‚ ‚Æ%d", 5 - m_pieceNum);
-	//Šm”F
-	DrawFormatString(0, 0, 0xffffff, "X.%d,Y.%d", m_piece.X, m_piece.Y);
-	DrawFormatString(0, 40, 0xffffff, "%d", m_pieceNum);
-	DrawFormatString(0, 20, 0xffffff, "m_dropWaitTime%3f", m_pushWaitTime);
 }
 
 bool Pieces::GameOver()

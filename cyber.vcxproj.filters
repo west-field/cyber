@@ -51,9 +51,6 @@
     <ClCompile Include="Object\Pieces.cpp">
       <Filter>Object</Filter>
     </ClCompile>
-    <ClCompile Include="Object\ObjectBase.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
     <ClCompile Include="Object\Bg.cpp">
       <Filter>Object</Filter>
     </ClCompile>
@@ -99,9 +96,6 @@
       <Filter>Util</Filter>
     </ClInclude>
     <ClInclude Include="Object\Pieces.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Object\ObjectBase.h">
       <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="Object\Bg.h">
