@@ -6,7 +6,7 @@ namespace
 {
 	const char* const kPlayerGraph = "Data/animalrobot.png";
 	const char* const kPlayerDamageGraph = "Data/effect2.png";
-	const char* const kEnemyGraph = "Data/animalrobot.png";
+	const char* const kEnemyGraph = "Data/robot.png";
 	const char* const kEnemyDamageGraph = "Data/effect.png";
 
 	int kColor[Color_Num] =
@@ -65,8 +65,6 @@ Pieces::~Pieces()
 
 void Pieces::Update()
 {
-	
-
 	m_player.Update();
 	m_enemy.Update();
 
@@ -205,6 +203,11 @@ bool Pieces::GameOver()
 		{
 			return true;
 		}
+	}
+
+	if (m_player.GetHp() <= 0)
+	{
+		return true;
 	}
 
 	return false;
