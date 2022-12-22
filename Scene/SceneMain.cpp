@@ -37,6 +37,7 @@ void SceneMain::init()
 	//BGM
 	Sound::StartBgm(Sound::SoundId_Bgm, 255);
 }
+
 void SceneMain::end()
 {
 	//BGM‚ðŽ~‚ß‚é
@@ -70,7 +71,7 @@ SceneBase* SceneMain::update()
 
 	//ƒ^ƒCƒgƒ‹‚É–ß‚é
 	Pad::update();
-	if (Pad::isPress(PAD_INPUT_3))
+	if (Pad::isPress(PAD_INPUT_1))
 	{
 		m_select = 3;
 		m_fadeSpeed = kFadeSpeed;
