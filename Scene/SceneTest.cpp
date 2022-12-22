@@ -2,6 +2,7 @@
 #include "SceneTest.h"
 #include "SceneTitle.h"
 #include "../game.h"
+#include "../Sound.h"
 
 namespace
 {
@@ -18,7 +19,14 @@ SceneTest::SceneTest():
 
 void SceneTest::init()
 {
-	
+	//BGM
+	Sound::StartBgm(Sound::SoundId_Bgm, 255);
+}
+
+void SceneTest::end()
+{
+	//BGM‚ðŽ~‚ß‚é
+	Sound::StopBgm(Sound::SoundId_Bgm);
 }
 
 SceneBase* SceneTest::update()
