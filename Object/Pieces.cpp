@@ -173,6 +173,7 @@ void Pieces::Draw()
 
 			//フィールドの枠
 			DrawBox(iX, iY, iX + kSizeX, iY + kSizeY, 0xffffff, false);
+			
 			if (m_field[y][x] != 0)
 			{
 				//フィールドに固定されたピース
@@ -181,6 +182,9 @@ void Pieces::Draw()
 			}
 		}
 	}
+	//一番上の段のところを目立たせる
+	DrawBox(m_statePosX, m_statePosY, m_statePosX + kSizeX * kFieldWidth, m_statePosY + kSizeY, 0xFF0000, false);
+
 	if (m_isPushMouse)
 	{
 		//移動中のピース
