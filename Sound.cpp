@@ -10,6 +10,7 @@ namespace
 	{
 		//BGM
 		"Sound/marbletechno1.mp3",	//タイトルBGM
+		"Sound/sekibaku.mp3",		//説明画面BGM
 		"Sound/retrogamecenter.mp3",		//BGM
 		"Sound/picopicodisco.mp3",	//ゲームクリア時BGM
 		"Sound/shizukanoumi.mp3",		//ゲームオーバー時BGM

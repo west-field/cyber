@@ -5,6 +5,7 @@ namespace Sound
 	typedef enum  SoundId
 	{
 		SoundId_TitleBgm,	//タイトルBGM
+		SoundId_TestBgm,	//説明画面BGM
 		SoundId_Bgm,		//BGM
 		SoundId_ClearBgm,	//ゲームクリア時BGM
 		SoundId_BgmGameover,//ゲームオーバー時BGM
