@@ -61,7 +61,7 @@ SceneBase* GameClearScene::update()
 
 void GameClearScene::draw()
 {
-	DrawGraph(0, 0, m_graph, false);
+	DrawExtendGraph(0, 0, Game::kScreenWidth, Game::kScreenHeight, m_graph, false);
 
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, m_fade);
 	DrawBox(0, 0, Game::kScreenWidth, Game::kScreenHeight, 0x000000, true);
