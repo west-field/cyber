@@ -53,7 +53,7 @@ void SceneTest::draw()
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
 	DrawBox(180, 90, 180 + 13 * 20, 90 + 2 * 20, 0x32CD32, true);
 	DrawBox(430, 180, 430 + 11 * 20, 180 + 4 * 20, 0x32CD32, true);
-	DrawBox(0, 280, 0 + 23 * 20, 280 + 4 * 20, 0x32CD32, true);
+	DrawBox(0, 280, 0 + 23 * 20, 280 + 5 * 20, 0x32CD32, true);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
 	DrawString(180, 90, "フィールド内をクリックして\nブロックを落とそう", 0xFFF0F5);
@@ -65,6 +65,7 @@ void SceneTest::draw()
 	DrawString(0, 300, "フィールドの一番上にブロックが来てもアウトだよ", 0xFFF0F5);
 
 	DrawString(0, 340, "Zキーでタイトルにもどれるよ", 0xFFF0F5);
+	DrawString(0, 360, "ESCキーでゲームを終了できるよ", 0xFFF0F5);
 
 	//フェード
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, m_fade);
