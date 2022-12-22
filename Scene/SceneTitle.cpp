@@ -11,16 +11,15 @@ namespace
 	constexpr int kOriginalPosX = Game::kScreenWidth / 3;    //メニュー文字の元のx位置
 	constexpr int kOriginalPosY = Game::kScreenHeight / 3;    //メニュー文字の元のy位置
 
-	constexpr int kMovedPosX = kOriginalPosX - 70;    //メニュー文字の移動したx位置
+	constexpr int kMovedPosX = kOriginalPosX - Game::kFontSize;    //メニュー文字の移動したx位置
 
 	constexpr int kPushSize = Game::kFontSize / 3;//文字列の幅
-	constexpr int kGap = 50;//文字列の幅
+	constexpr int kGap = Game::kFontSize - 20;//文字列の幅
 
 // メニュー項目要素を作る  タグの中身の順番で格納される。x.y座標　メニュー最初の位置 + (文字のサイズ + 間)　* 何番目に表示するか
 	MenuElement_t MenuElement[eMenu_Num] = {
 		{ kMovedPosX, kOriginalPosY + Game::kFontSize * eMenu_GameStart, "ゲームスタート" },
-		{ kOriginalPosX, kOriginalPosY + (Game::kFontSize + kGap) * eMenu_Help, "ヘルプ" },
-		{ kOriginalPosX, kOriginalPosY + (Game::kFontSize + kGap) * eMenu_GameEnd, "ゲーム終了" }
+		{ kOriginalPosX, kOriginalPosY + (Game::kFontSize + kGap) * eMenu_Help, "ヘルプ" }
 	};
 
 	constexpr int kFadeSpeed = 8;
@@ -77,7 +76,7 @@ SceneBase* SceneTitle::update()
 		if (mouseX > kOriginalPosX - Game::kFontSize && mouseX <= 900)
 		{
 			//メニュー表示位置Y内にカーソルがあるかどうか
-			if (m_isFirst && mouseY > MenuElement[eMenu_GameStart].y && mouseY < MenuElement[eMenu_GameEnd].y + Game::kFontSize)
+			if (m_isFirst && mouseY > MenuElement[eMenu_GameStart].y && mouseY < MenuElement[eMenu_Help].y + Game::kFontSize)
 			{
 				Sound::Play(Sound::SoundId_CursorMove);
 				m_isFirst = false;
@@ -96,14 +95,6 @@ SceneBase* SceneTitle::update()
 				{
 					Sound::Play(Sound::SoundId_CursorMove);
 					m_selectNum = eMenu_Help;
-				}
-			}
-			else if (mouseY > MenuElement[eMenu_GameEnd].y && mouseY < MenuElement[eMenu_GameEnd ].y + Game::kFontSize)
-			{
-				if (m_selectNum != eMenu_GameEnd)
-				{
-					Sound::Play(Sound::SoundId_CursorMove);
-					m_selectNum = eMenu_GameEnd;
 				}
 			}
 			//マウスが押されたら
@@ -144,9 +135,7 @@ SceneBase* SceneTitle::update()
 		case eMenu_Help:
 			//Testに切り替え
 			return (new SceneTest);
-
-		case eMenu_GameEnd:
-			m_fadeSpeed = -kFadeSpeed;
+			break;
 		default:
 			break;
 		}

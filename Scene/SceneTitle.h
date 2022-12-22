@@ -4,7 +4,6 @@
 enum eMenu {
 	eMenu_GameStart,		//ゲーム
 	eMenu_Help,				//ヘルプ
-	eMenu_GameEnd,			//終了
 
 	eMenu_Num,				//本項目の数
 };
