@@ -3,7 +3,6 @@
 #include "Sound.h"
 #include "SceneManager.h"
 
-// プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 	// windowモード設定

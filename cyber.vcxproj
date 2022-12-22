@@ -151,10 +151,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Object\Bg.cpp" />
     <ClCompile Include="Scene\GameClearScene.cpp" />
     <ClCompile Include="Scene\GameOverScene.cpp" />
     <ClCompile Include="Object\Enemy.cpp" />
-    <ClCompile Include="Object\Bg.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object\Pieces.cpp" />
     <ClCompile Include="Object\Player.cpp" />
@@ -168,10 +168,10 @@
     <ClCompile Include="Util\Vec2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Object\Bg.h" />
     <ClInclude Include="Scene\GameClearScene.h" />
     <ClInclude Include="Scene\GameOverScene.h" />
     <ClInclude Include="Object\Enemy.h" />
-    <ClInclude Include="Object\Bg.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="Object\Pieces.h" />
     <ClInclude Include="Object\Player.h" />

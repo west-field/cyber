@@ -51,9 +51,6 @@
     <ClCompile Include="Object\Pieces.cpp">
       <Filter>Object</Filter>
     </ClCompile>
-    <ClCompile Include="Object\Bg.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
     <ClCompile Include="Object\Player.cpp">
       <Filter>Object</Filter>
     </ClCompile>
@@ -68,6 +65,9 @@
     </ClCompile>
     <ClCompile Include="Sound.cpp">
       <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Bg.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,9 +98,6 @@
     <ClInclude Include="Object\Pieces.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="Object\Bg.h">
-      <Filter>Object</Filter>
-    </ClInclude>
     <ClInclude Include="Object\Player.h">
       <Filter>Object</Filter>
     </ClInclude>
@@ -115,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="Sound.h">
       <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Bg.h">
+      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
