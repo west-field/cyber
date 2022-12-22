@@ -9,8 +9,8 @@
 namespace
 {
 	constexpr float kMaxHp = 100.0f;
-	constexpr int kGraphSizeX = 150;
-	constexpr int kGraphSizeY = 140;
+	constexpr int kGraphSizeX = 140;
+	constexpr int kGraphSizeY = 130;
 
 	constexpr int kDamage = 10;
 }
@@ -40,7 +40,7 @@ void Enemy::Init()
 	m_nowHp = kMaxHp;
 	m_hpWidth = kGraphSizeX;
 
-	m_pos.x = m_attackPos.x = (Game::kScreenWidth + 5 * 50) / 2;
+	m_pos.x = m_attackPos.x = (Game::kScreenWidth + 5 * 60) / 2;
 	m_pos.y = m_attackPos.y = 20.0f;
 
 	m_effectDrawTime = 120;
