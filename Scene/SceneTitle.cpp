@@ -9,7 +9,7 @@
 namespace
 {
 	constexpr int kOriginalPosX = Game::kScreenWidth / 3;    //メニュー文字の元のx位置
-	constexpr int kOriginalPosY = Game::kScreenHeight / 3;    //メニュー文字の元のy位置
+	constexpr int kOriginalPosY = Game::kScreenHeight / 2 - 20;    //メニュー文字の元のy位置
 
 	constexpr int kMovedPosX = kOriginalPosX - Game::kFontSize;    //メニュー文字の移動したx位置
 
@@ -18,8 +18,7 @@ namespace
 
 // メニュー項目要素を作る  タグの中身の順番で格納される。x.y座標　メニュー最初の位置 + (文字のサイズ + 間)　* 何番目に表示するか
 	MenuElement_t MenuElement[eMenu_Num] = {
-		{ kMovedPosX, kOriginalPosY + Game::kFontSize * eMenu_GameStart, "ゲームスタート" },
-		{ kOriginalPosX, kOriginalPosY + (Game::kFontSize + kGap) * eMenu_Help, "ヘルプ" }
+		{ kMovedPosX, kOriginalPosY + Game::kFontSize * eMenu_GameStart, "ゲームスタート" }
 	};
 
 	constexpr int kFadeSpeed = 8;
@@ -76,25 +75,12 @@ SceneBase* SceneTitle::update()
 		if (mouseX > kOriginalPosX - Game::kFontSize && mouseX <= 900)
 		{
 			//メニュー表示位置Y内にカーソルがあるかどうか
-			if (m_isFirst && mouseY > MenuElement[eMenu_GameStart].y && mouseY < MenuElement[eMenu_Help].y + Game::kFontSize)
+			if ( mouseY > MenuElement[eMenu_GameStart].y && mouseY < MenuElement[eMenu_GameStart].y + Game::kFontSize)
 			{
 				Sound::Play(Sound::SoundId_CursorMove);
-				m_isFirst = false;
-			}
-			else if (mouseY > MenuElement[eMenu_GameStart].y && mouseY < MenuElement[eMenu_GameStart].y + Game::kFontSize)
-			{
 				if (m_selectNum != eMenu_GameStart)
 				{
-					Sound::Play(Sound::SoundId_CursorMove);
 					m_selectNum = eMenu_GameStart;
-				}
-			}
-			else if (mouseY > MenuElement[eMenu_Help].y && mouseY < MenuElement[eMenu_Help].y + Game::kFontSize)
-			{
-				if (m_selectNum != eMenu_Help)
-				{
-					Sound::Play(Sound::SoundId_CursorMove);
-					m_selectNum = eMenu_Help;
 				}
 			}
 			//マウスが押されたら
@@ -129,11 +115,6 @@ SceneBase* SceneTitle::update()
 		{
 
 		case eMenu_GameStart:
-			//Mainに切り替え
-			return (new SceneMain);
-
-		case eMenu_Help:
-			//Testに切り替え
 			return (new SceneTest);
 			break;
 		default:

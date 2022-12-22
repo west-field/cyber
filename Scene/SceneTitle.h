@@ -3,7 +3,6 @@
 
 enum eMenu {
 	eMenu_GameStart,		//ƒQ[ƒ€
-	eMenu_Help,				//ƒwƒ‹ƒv
 
 	eMenu_Num,				//–{€–Ú‚Ì”
 };
