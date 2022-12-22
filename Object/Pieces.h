@@ -28,8 +28,6 @@ public:
 	Pieces();
 	virtual ~Pieces();
 
-	//void SetBg(int handle) { m_bgGraph = handle; }
-
 	void Update();
 	void Draw();
 	/// <summary>
@@ -95,6 +93,7 @@ private:
 	int m_pieceNum;
 
 	Player m_player;
+	int m_playerGraph[Player::kGraphicDivNum];
 	Enemy m_enemy;
 };
 

@@ -4,7 +4,7 @@
 #include "../Sound.h"
 namespace
 {
-	const char* const kPlayerGraph = "Data/animalrobot.png";
+	const char* const kPlayerGraph = "Data/robo.png";
 	const char* const kPlayerDamageGraph = "Data/effect2.png";
 	const char* const kEnemyGraph = "Data/robot.png";
 	const char* const kEnemyDamageGraph = "Data/effect.png";
@@ -20,7 +20,7 @@ namespace
 		0xFF00FF//紫
 	};
 	//ピースの大きさ
-	 constexpr int kSizeX = 60;
+	 constexpr int kSizeX = 40;
 	 constexpr int kSizeY = kSizeX;
 	//落ちる時間
 	 constexpr float kDropWaitTime = 5.0f;
@@ -30,14 +30,28 @@ Pieces::Pieces() :
 	m_player(),
 	m_enemy()
 {
+	for (auto& handle : m_playerGraph)
+	{
+		handle = -1;
+	}
+
+	LoadDivGraph(kPlayerGraph, Player::kGraphicDivNum,
+		Player::kGraphicDivX, Player::kGraphicDivY,
+		Player::kGraphicSizeX, Player::kGraphicSizeY, m_playerGraph);
+
+	m_player.SetEffectGraph(LoadGraph(kPlayerDamageGraph));
+	for (int i = 0; i < Player::kGraphicDivNum; i++)
+	{
+		m_player.SetGraph(m_playerGraph[i], i);
+	}
+
+	m_enemy.SetGraph(LoadGraph(kEnemyGraph), LoadGraph(kEnemyDamageGraph));
+
 	m_player.Init();
 	m_enemy.Init();
 
-	m_player.SetGraph(LoadGraph(kPlayerGraph), LoadGraph(kPlayerDamageGraph));
-	m_enemy.SetGraph(LoadGraph(kEnemyGraph), LoadGraph(kEnemyDamageGraph));
-
 	m_statePosX = (Game::kScreenWidth - kFieldWidth * kSizeX) / 2;
-	m_statePosY = (Game::kScreenHeight - (kFieldHeight-3) * kSizeY) / 2;
+	m_statePosY = (Game::kScreenHeight - kFieldHeight * kSizeY) / 2;
 
 	m_isErasePiese = false;
 
@@ -45,8 +59,8 @@ Pieces::Pieces() :
 	m_piece.Y = 0;
 	m_piece.color = rand() % (Color_Num - 1) + 1;
 
-	m_nextPiece.X = m_statePosX + kFieldWidth* kSizeX + 30;
-	m_nextPiece.Y = m_statePosY + 2 * kSizeX + 30;
+	m_nextPiece.X = m_statePosX - kSizeX - 30;
+	m_nextPiece.Y = m_statePosY + 4 * kSizeX + 30;
 	m_nextPiece.color = rand() % (Color_Num - 1) + 1;
 
 	m_count = 0;
@@ -60,7 +74,10 @@ Pieces::Pieces() :
 
 Pieces::~Pieces()
 {
-
+	for (auto& handle : m_playerGraph)
+	{
+		DeleteGraph(handle);
+	}
 }
 
 void Pieces::Update()
@@ -160,7 +177,7 @@ void Pieces::Draw()
 			{
 				//フィールドに固定されたピース
 				DrawBox(iX, iY, iX + kSizeX, iY + kSizeY,kColor[m_field[y][x]], true);
-				DrawBox(iX, iY, iX + kSizeX, iY + kSizeY, 0x000000, false);
+				DrawBox(iX, iY, iX + kSizeX, iY + kSizeY, 0xffffff, false);
 			}
 		}
 	}
@@ -170,22 +187,23 @@ void Pieces::Draw()
 		DrawBox(m_piece.X * kSizeX + m_statePosX, m_piece.Y * kSizeY + m_statePosY, 
 			m_piece.X * kSizeX + m_statePosX + kSizeX, m_piece.Y * kSizeY + m_statePosY + kSizeY, kColor[m_piece.color], true);
 		DrawBox(m_piece.X * kSizeX + m_statePosX, m_piece.Y * kSizeY + m_statePosY,
-			m_piece.X * kSizeX + m_statePosX + kSizeX, m_piece.Y * kSizeY + m_statePosY + kSizeY, 0x000000, false);
+			m_piece.X * kSizeX + m_statePosX + kSizeX, m_piece.Y * kSizeY + m_statePosY + kSizeY, 0xffffff, false);
 	}
 	else
 	{
-		//次に落ちるピースを表示
+		//次に落ちるピースをフィールド内に表示
 		DrawBox(X, Y, X + kSizeX, Y + kSizeY, kColor[m_piece.color], true);
-		DrawBox(X, Y, X + kSizeX, Y + kSizeY, 0x000000, false);
+		DrawBox(X, Y, X + kSizeX, Y + kSizeY, 0xffffff, false);
 	}
 
 	//次のピースを表示しておく
+	DrawString(m_nextPiece.X, m_nextPiece.Y  - 20, "next", 0xffffff);
 	DrawBox(m_nextPiece.X, m_nextPiece.Y, m_nextPiece.X + kSizeX, m_nextPiece.Y + kSizeY, kColor[m_nextPiece.color], true);
-	DrawBox(m_nextPiece.X, m_nextPiece.Y, m_nextPiece.X + kSizeX, m_nextPiece.Y + kSizeY, 0x000000, false);
+	DrawBox(m_nextPiece.X, m_nextPiece.Y, m_nextPiece.X + kSizeX, m_nextPiece.Y + kSizeY, 0xffffff, false);
 
 	m_player.Draw();
 	m_enemy.Draw();
-	DrawFormatString((Game::kScreenWidth + 5 * 50) / 2 + 140, 20.0f, 0xffffff, "あと%d", 5 - m_pieceNum);
+	DrawFormatString((Game::kScreenWidth + 5 * 50) / 2 + 140, static_cast<int>(20.0f), 0xffffff, "あと%d", 5 - m_pieceNum);
 }
 
 bool Pieces::GameOver()
