@@ -1,5 +1,5 @@
-#include "DxLib.h"
-#include "Pad.h"
+#include <DxLib.h>
+#include "../Util/Pad.h"
 #include "../game.h"
 #include "../Sound.h"
 #include "SceneMain.h"

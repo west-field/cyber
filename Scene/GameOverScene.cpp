@@ -1,5 +1,5 @@
 #include "GameOverScene.h"
-#include "DxLib.h"
+#include <DxLib.h>
 #include "../game.h"
 #include "../Sound.h"
 #include "SceneTitle.h"

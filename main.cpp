@@ -1,7 +1,7 @@
-#include "DxLib.h"
+#include <DxLib.h>
 #include "game.h"
 #include "Sound.h"
-#include "SceneManager.h"
+#include "Scene/SceneManager.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {

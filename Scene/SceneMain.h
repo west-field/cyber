@@ -1,8 +1,8 @@
 #pragma once
 #include "SceneBase.h"
-#include "Pieces.h"
+#include "../Object/Pieces.h"
 
-#include "Bg.h"
+#include "../Object/Bg.h"
 
 class SceneMain : public SceneBase
 {

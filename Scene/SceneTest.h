@@ -1,6 +1,6 @@
 #pragma once
 #include "SceneBase.h"
-#include "Pieces.h"
+#include "../Object/Pieces.h"
 
 class SceneTest : public SceneBase
 {

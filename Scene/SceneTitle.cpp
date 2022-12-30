@@ -1,8 +1,8 @@
-#include "DxLib.h"
+#include <DxLib.h>
 #include "SceneTitle.h"
 #include "SceneMain.h"
 #include "SceneTest.h"
-#include "Pad.h"
+#include "../Util/Pad.h"
 #include "../game.h"
 #include "../Sound.h"
 

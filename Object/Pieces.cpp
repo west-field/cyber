@@ -1,5 +1,5 @@
 #include "Pieces.h"
-#include "DxLib.h"
+#include <DxLib.h>
 #include "../game.h"
 #include "../Sound.h"
 namespace

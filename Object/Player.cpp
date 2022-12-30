@@ -1,5 +1,5 @@
 #include "Player.h"
-#include "DxLib.h"
+#include <DxLib.h>
 #include <cassert>
 #include "../game.h"
 #include "../Sound.h"
