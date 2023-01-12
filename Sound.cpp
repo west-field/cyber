@@ -1,5 +1,5 @@
 #include "Sound.h"
-#include <DxLib.h>
+#include "DxLib.h"
 #include <vector>
 
 namespace

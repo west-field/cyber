@@ -1,4 +1,4 @@
-#include <DxLib.h>
+#include "DxLib.h"
 #include "SceneTitle.h"
 #include "SceneMain.h"
 #include "SceneTest.h"
@@ -135,6 +135,7 @@ void SceneTitle::draw()
 		DrawFormatString(MenuElement[i].x, MenuElement[i].y, GetColor(255, 255, 255), MenuElement[i].name);
 	}
 	SetFontSize(0);
+	DrawFormatString(MenuElement[eMenu_Num - 1].x, MenuElement[eMenu_Num - 1].y + (Game::kFontSize + 10), GetColor(255, 255, 255), "マウスクリックしてスタート！");
 	//フェード表示
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, m_fade);
 	DrawBox(0, 0, Game::kScreenWidth, Game::kScreenHeight, 0x000000, true);

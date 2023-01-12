@@ -1,4 +1,4 @@
-#include <DxLib.h>
+#include "DxLib.h"
 #include "SceneTest.h"
 #include "SceneMain.h"
 #include "../game.h"
